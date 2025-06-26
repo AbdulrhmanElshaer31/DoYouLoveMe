@@ -1,17 +1,13 @@
-function moveRandomEl(elm) {
-    elm.style.position = "absolute";
-    const newTop = Math.floor(Math.random() * 90 + 5) + "%";
-    const newLeft = Math.floor(Math.random() * 90 + 5) + "%";
+let no = document.getElementById('no');
 
+no.addEventListener('mousemove', () => {
+    const maxX = window.innerWidth - no.offsetWidth;
+    const maxY = window.innerHeight - no.offsetHeight;
 
-    elm.style.transition = "top 0.3s ease-in-out, left 0.3s ease-in-out";
+    const randomX = Math.random() * maxX;
+    const randomY = Math.random() * maxY;
 
-    elm.style.top = newTop;
-    elm.style.left = newLeft;
-}
-
-const moveRandom = document.querySelector("#move-random");
-
-moveRandom.addEventListener("mouseenter", function (e) {
-    moveRandomEl(e.target);
+    no.style.position = 'absolute';
+    no.style.left = `${randomX}px`;
+    no.style.top = `${randomY}px`;
 });
